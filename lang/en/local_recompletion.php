@@ -129,6 +129,11 @@ $string['privacy:metadata:local_recompletion_qr:submitted'] = 'Submitted';
 $string['privacy:metadata:local_recompletion_qr:complete'] = 'complete';
 $string['privacy:metadata:local_recompletion_qr:grade'] = 'Grade';
 $string['privacy:metadata:local_recompletion_qr'] = 'Recompletion Questionnaire response table';
+$string['privacy:metadata:customcert_issues'] = 'Archived details about each issued Custom Certificate.';
+$string['privacy:metadata:local_recompletion_ccrt_i:customcertid'] = 'Questionnaire id';
+$string['privacy:metadata:local_recompletion_ccrt_i:code'] = 'Issue Code';
+$string['privacy:metadata:local_recompletion_ccrt_i:emailed'] = 'Emailed';
+$string['privacy:metadata:local_recompletion_ccrt_i:timecreated'] = 'The time when was Custom Certificate Issued';
 $string['noassigngradepermission'] = 'Your completion was reset, but this course contains an assignment that could not be reset, please ask your teacher to do this for you if required.';
 $string['editcompletion'] = 'Edit course completion date';
 $string['editcompletion_desc'] = 'Modify the course completion date for the following users:';
@@ -150,3 +155,7 @@ $string['resetltis'] = 'LTI grades';
 $string['resetltis_help'] = 'How to handle LTI grades within the course.
 If the setting \'Reset LTI grades\' is used, all grade LTI results will be reset to 0.
 When user achieved new completion in the course, the updated course grade will be resend to the LTI provider.';
+$string['customcertissues'] = 'Custom Certificate Issues';
+$string['customcertissues_help'] = 'Reset Custom Certificate Issues';
+$string['deletecustomcertissues'] = 'Delete Custom Certificate Issues';
+$string['archivecustomcertissues'] = 'Archive Custom Certificate Issues';

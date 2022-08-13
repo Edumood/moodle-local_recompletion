@@ -565,5 +565,33 @@ function xmldb_local_recompletion_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2021112400, 'local', 'recompletion');
     }
 
+    if ($oldversion < 2022081300) {
+        // Correct default value for couse on the local_recompletion_qr table to be zero.
+        // Define table local_recompletion_qr_text to be created.
+        $table = new xmldb_table('local_recompletion_ccrt_i');
+
+        // Adding fields to table local_recompletion_qr_text.
+        $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
+        $table->add_field('userid', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0');
+        $table->add_field('customcertid', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0');
+        $table->add_field('code', XMLDB_TYPE_CHAR, 40, null, null, null, null);
+        $table->add_field('emailed', XMLDB_TYPE_INTEGER, '1', null, XMLDB_NOTNULL, null, '0');
+        $table->add_field('timecreated', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0');
+
+        // Adding keys to table local_recompletion_qr_text.
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, ['id']);
+
+        // Adding indexes to table local_recompletion_qr_text.
+        $table->add_index('customcert', XMLDB_INDEX_NOTUNIQUE, ['customcertid']);
+
+        // Conditionally launch create table for local_recompletion_qr_text.
+        if (!$dbman->table_exists($table)) {
+            $dbman->create_table($table);
+        }
+
+        // Recompletion savepoint reached.
+        upgrade_plugin_savepoint(true, 2022081300, 'local', 'recompletion');
+    }
+
     return true;
 }
